@@ -1,0 +1,20 @@
+---
+title: Lookup our tags
+description: Webpage to look up the tags of properties we have available
+eleventyNavigation:
+  key: tags 🏠
+  parent: main
+---
+
+{% extends 'layouts/page.njk' %}
+{% block content %}<div class="container mt-4">
+	<div class="row row-cols-1">
+		<h1 class="mt-0">{{title}}</h1>
+		<ul>
+			{% for tag in collections.tagList %}
+			{% set tagUrl %}/tags/{{ tag }}/{% endset %}
+			<li class="list-inline-1"><a href="{{ tagUrl | url }}" class="tag">{{ tag }}</a> ({{ collections[tag].length }})</li>
+			{% endfor %}
+		</ul>
+	</div>
+</div>{% endblock %}

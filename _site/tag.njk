@@ -1,0 +1,27 @@
+---
+title: Co Properties
+description: All properties
+pagination:
+  data: collections
+  size: 1
+  alias: tag
+permalink: /tags/{{ tag }}/
+---
+
+{% extends 'layouts/page.njk' %}
+
+{% set taglist = collections[ tag ] %}
+{% block content %}<div class="container mt-4">
+  <div class="row row-cols-1">
+    <h1 class="mt-0">Collection of Tag</h1>
+    <p>
+      There are {{ taglist.length }} items tagged <em>#{{ tag }}</em>.<br />
+      And there a lots of other <a href="/tags">tags</a> to explore.
+    </p>
+    <p class="by-line">Blog posts tagged:</p>
+    <h2>{{ tag }}</h2>
+    {% for item in taglist | reverse %}
+    {%- include "post-teaser-condensed.njk" -%}
+    {% endfor %}
+  </div>
+</div>{% endblock %}

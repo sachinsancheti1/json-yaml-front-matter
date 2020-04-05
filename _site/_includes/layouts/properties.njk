@@ -1,0 +1,28 @@
+---
+title: blank
+headerHeight: 50vh
+tags: properties
+carousel: true
+---
+{% extends 'layouts/page.njk' %}
+{% block content %}
+<div class="container pt-4 mt-4">
+  <div class="row row-cols-1">
+    <h1 class="mt-0">{{projectName}}</h1>
+    <p>{{title}}<br><span class="font-weight-bold text-secondary">{{subtitle}}</span></p>
+    <hr/>
+    <p>About {{ longDescription | propAddress | readingTime }} reading time.</p>
+    {% for post in longDescription %}<p>{{post | safe}}</p>{% endfor %}
+    <hr/>
+    <div class="container mt-4">
+      <div class="row row-cols-1">
+        <div class="slider-for">{% for image in images %}<div><img src="{{image.big}}"></div>{% endfor %}
+      </div>
+      <div class="slider-nav">{% for image in images %}<div width="160px" style="width:160px"><img src="{{image.thumb}}"></div>{% endfor %}
+    </div>
+  </div>
+</div>
+</div>
+</div>
+<hr/>
+{% endblock %}

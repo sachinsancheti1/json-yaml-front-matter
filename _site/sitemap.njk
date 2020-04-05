@@ -1,0 +1,11 @@
+---
+permalink: sitemap.xml
+---
+<?xml version="1.0" encoding="UTF-8"?>
+{%- for page in collections.all %}
+<page>
+  <layout>{{page.data.layout}}</layout>
+  <url>{{ site.rootUrl }}{{ page.url }}</url>
+  <title>{{ page.data.title }}</title>
+  </page>
+{%- endfor %}

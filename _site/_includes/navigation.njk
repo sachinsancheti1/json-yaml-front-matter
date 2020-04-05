@@ -1,0 +1,16 @@
+<section class="navigation">
+    <div class="nav-container">
+        <div class="brand">
+            <a href="/index.html"><img class="brand-logo-dark" src="/images/logo.png" alt="logo" width="121" height="61" /></a>
+        </div>
+        <nav>
+            <div class="nav-mobile"><a id="nav-toggle" href="#!"><span></span></a></div>
+            <ul class="nav-list">
+                {% set mainNav = collections.all | eleventyNavigation('main') %}
+                {%- for nav in mainNav -%}
+                <li class="nav-item"><a class="nav-link" href="{{nav.url}}">{{nav.key}}</a></li>
+                {%- endfor -%}
+            </ul>
+        </nav>
+    </div>
+</section>
