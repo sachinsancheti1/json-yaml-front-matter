@@ -10,7 +10,7 @@ let outputFileName = 'rename-me';
 async function makeTemplate () {
   const properties = await readAsJson(defaultFilePath);
 
-  if (properties.websiteLink!="") {
+  if (properties.websiteLink!=="") {
     return writeFile(properties);
   } else {
     console.log(properties.projectName);
@@ -18,10 +18,14 @@ async function makeTemplate () {
 }
 
 async function readAsJson (filePath) {
-  const jsonData = fs.readFile(filePath, 'utf8', function (err, data) {
-    if (err) console.log('Error in readAsJson');
-  });
-  return = JSON.parse(jsonData)[0];  // Yes this broke. Not sure if any of my syntax is even right
+  let jsonData;
+  try {
+  jsonData = await readFile(filePath, 'utf8');  // jsonData equals the second argument of the original callback)
+  // console.log('JSON data', jsonData);
+  return JSON.parse(jsonData)[0];
+} catch (err) {
+  console.error('Error in readAsJson', err);
+}
 }
 
 function writeFile (properties) {
@@ -35,7 +39,7 @@ function writeFile (properties) {
 
 function computeOutput (properties) {
   const frontmatter = yaml.safeDump(properties);
-  console.log(frontmatter);
+  // console.log(frontmatter);
   return `---\n${frontmatter}\n---`;
 }
 
