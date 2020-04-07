@@ -3,14 +3,14 @@ const path = require('path');
 const yaml = require('js-yaml');
 
 // read template and files
-var jsonData = fs.readFileSync('_site/_data/properties.json');
-var jsonObj = JSON.parse(jsonData)[0]; // capturing only the first element. I am sure there is a way to do this using a foreach loop.
+const jsonData = fs.readFileSync('_site/_data/properties.json');
+const jsonObj = JSON.parse(jsonData)[0]; // capturing only the first element. I am sure there is a way to do this using a foreach loop.
 let yamlStr = yaml.safeDump(jsonObj);
 // console.log(yamlStr);
 
 if(jsonObj.message == undefined){
-	var slug = jsonObj.websiteLink;
-	var filename = slug+".md";
+	const slug = jsonObj.websiteLink;
+	const filename = slug+".md";
 	let yamlStr1 = "---\n"+yamlStr+"\n---";
 	let output = yamlStr1;
 
