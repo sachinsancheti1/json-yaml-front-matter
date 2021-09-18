@@ -1,0 +1,27 @@
+{
+  "name": "json-yaml-front-matter",
+  "version": "1.0.0",
+  "description": "Convert JSON files to yaml front matter in md, njk or html pages",
+  "main": ".eleventy.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node templateMaker/js-yaml-script-2.js & eleventy --serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sachinsancheti1/json-yaml-front-matter.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sachinsancheti1/json-yaml-front-matter/issues"
+  },
+  "homepage": "https://github.com/sachinsancheti1/json-yaml-front-matter#readme",
+  "dependencies": {
+    "@11ty/eleventy": "^0.12.1",
+    "@11ty/eleventy-navigation": "^0.3.2",
+    "@11ty/eleventy-plugin-syntaxhighlight": "^3.1.2",
+    "eleventy-plugin-reading-time": "^0.0.1",
+    "es6-promisify": "^7.0.0"
+  }
+}
